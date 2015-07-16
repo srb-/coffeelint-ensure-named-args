@@ -1,6 +1,6 @@
 {
   "name": "coffeelint-ensure-named-args",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "A CoffeeLint rule that prohibits calling a function without first naming each argument",
   "main": "index.js",
   "keywords": [
@@ -34,5 +34,8 @@
   },
   "devDependencies": {
     "coffee-script": "~1.7.0"
+  },
+  "dependencies": {
+    "coffee-script": "^1.9.3"
   }
 }

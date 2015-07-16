@@ -13,7 +13,6 @@ module.exports = class EnsureNamedArgs
 
     # return true if error found
     lintToken : (token, tokenApi) ->
-        #console.log '\n\nIN rule!!!, return true if error is found\n'
 
         callStarts = 0
         argsWithoutName = 0
@@ -25,7 +24,7 @@ module.exports = class EnsureNamedArgs
         while(not done)
 
             token = tokenApi.peek(i)?[0]
-            #console.log token
+
             if not token? then done = true
 
 
@@ -47,10 +46,11 @@ module.exports = class EnsureNamedArgs
 
             i = i + 1
 
-        #console.log not allArgumentsNamed
-        #return not allArgumentsNamed # if false then error
         if not allArgumentsNamed
-            return { context: "#{argsWithoutName} argument(s) not named" }
+            if argsWithoutName > 1
+                return { context: "#{argsWithoutName} argument(s) not named" }
+            else
+                return null
         else
             return null
 
